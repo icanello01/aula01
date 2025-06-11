@@ -1,14 +1,3 @@
-# Instalar as bibliotecas
-# Usar as bibliotecas no meu código
-# Iniciar a automação
-## Abrir o navegador
-## Acessar o site
-## Autenticar usuário
-## Carregar o arquivo que contém os dados a serem inseridos
-## Cadastrar os alunos
-#### --> Repetir os passos acima até cadastrar todos os alunos
-
-
 import pyautogui
 import pandas
 import time
@@ -32,10 +21,23 @@ pyautogui.write('simplificapython')
 pyautogui.press('tab')
 pyautogui.press('enter')
 
-pyautogui.press('tab', presses=3)
+tabela = pandas.read_csv('alunos.csv')
 
-
-
-
-
-
+for linha in tabela.index:
+    pyautogui.press('tab', presses=5
+    )   
+    nome = tabela.loc[linha, 'Nome']
+    pyautogui.write(nome)
+    pyautogui.press('tab')
+    email = tabela.loc[linha, 'Email']
+    pyautogui.write(email)
+    pyautogui.press('tab')
+    endereco = tabela.loc[linha, 'Endereco']
+    pyautogui.write(endereco)
+    pyautogui.press('tab')
+    telefone = tabela.loc[linha, 'Telefone']
+    pyautogui.write(telefone)
+    pyautogui.press('tab')
+    pyautogui.press('enter')
+    time.sleep(1)
+    pyautogui.scroll(5000)
